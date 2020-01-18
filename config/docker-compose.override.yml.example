@@ -30,6 +30,11 @@ services:
       - translations:/usr/src/app/public/javascripts/translations
       - yardoc:/usr/src/app/.yardoc
       - yarn-cache:/home/docker/.cache/yarn
+      - canvas-rce_node_modules:/usr/src/app/packages/canvas-rce/node_modules
+      - canvas-rce_lib:/usr/src/app/packages/canvas-rce/lib
+      - js-utils:/usr/src/app/packages/js-utils
+      - k5uploader:/usr/src/app/packages/k5uploader
+      - canvas-media:/usr/src/app/packages/canvas-media
     environment: &BASE-ENV
       RAILS_ENV: development
       ENCRYPTION_KEY: facdd3a131ddd8988b14f6e4e01039c93cfa0160
@@ -40,6 +45,8 @@ services:
 
   web:
     <<: *BASE
+    ports:
+    - "80:80"
     environment:
       <<: *BASE-ENV
       VIRTUAL_HOST: .canvas.docker
@@ -84,3 +91,9 @@ volumes:
   translations: {}
   yardoc: {}
   yarn-cache: {}
+  canvas-rce_node_modules: {}
+  canvas-rce_lib: {}
+  js-utils: {}
+  k5uploader: {}
+  js-utils: {}
+  canvas
