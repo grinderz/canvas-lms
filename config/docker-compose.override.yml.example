@@ -96,4 +96,4 @@ volumes:
   js-utils: {}
   k5uploader: {}
   js-utils: {}
-  canvas
+  canvas-media: {}
